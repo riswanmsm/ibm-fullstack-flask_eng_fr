@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "==1.1.2"
+flask-wtf = "==0.14.3"
+ibm-watson = "==4.4.1"
+python-dotenv = "==0.13.0"
+pyjwt = "==1.7.1"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
