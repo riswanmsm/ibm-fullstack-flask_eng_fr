@@ -1,7 +1,10 @@
-import json
+"""
+This module is used to translate text from French to English or English to French.
+"""
+# import json
+import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -18,31 +21,31 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 
-def englishToFrench(englishText):
+def english_to_french(english_text):
     """
     This function translates english sentence given to French
     """
-    frenchTextObject = language_translator.translate(
-        text=englishText,
+    french_text_object = language_translator.translate(
+        text=english_text,
         model_id='en-fr'
     ).get_result()
 
-    frenchText = frenchTextObject['translations'][0]['translation']
-    return frenchText
+    french_text = french_text_object['translations'][0]['translation']
+    return french_text
 
 
-def frenchToEnglish(frenchText):
+def french_to_english(french_text):
     """
     This function translates French sentence given to English
     """
-    englishTextObject = language_translator.translate(
-        text=frenchText,
+    english_text_object = language_translator.translate(
+        text=french_text,
         model_id='fr-en'
     ).get_result()
 
-    englishText = englishTextObject['translations'][0]['translation']
-    return englishText
+    english_text = english_text_object['translations'][0]['translation']
+    return english_text
 
 
-print(englishToFrench('Hello, I am Fine'))
-print(frenchToEnglish('Bonjour, je suis Fine'))
+# print(englishToFrench(''))
+# print(frenchToEnglish('Bonjour, je suis Fine'))
